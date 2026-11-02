@@ -3,7 +3,7 @@ title: "Lição 8 - Criar e integrar o PR do recurso"
 description: "Revise em conjunto a filtragem, as instruções, a atualização da skill, o perfil de QA e os testes; depois, crie um PR e use o Agent Merge."
 authors:
   - geektrainer
-lastUpdated: 2026-09-17
+lastUpdated: 2026-10-22
 ---
 
 A implementação da filtragem, as atualizações de instruções e da skill, o perfil de garantia de qualidade (QA) e os testes estão salvos em uma única branch. É hora de revisá-los em conjunto e abrir um pull request. Você mesmo fez o merge do pull request (PR) de avaliações por estrelas; desta vez, permitirá que o **Agent Merge** gerencie o processo.
@@ -33,8 +33,8 @@ Com todo o código criado e revisado, vamos permitir que o Agent Merge gerencie 
 
 1. Use o seletor de agentes para selecionar **Default agent**.
 2. Selecione o menu suspenso ao lado de **Create PR**.
-3. Selecione **Agent merge**. O botão mudará para **Agent merge**.
-4. Selecione **Agent merge** para iniciar o processo.
+3. Selecione **Agent Merge**. O botão mudará para **Agent Merge**.
+4. Selecione o botão **Agent Merge** para iniciar o processo. Selecionar a opção no menu, por si só, não inicia o processo.
 
 O processo do Agent Merge começa. Ele vai:
 
@@ -47,8 +47,16 @@ O processo do Agent Merge começa. Ele vai:
 
 Vamos permitir que o Agent Merge também faça o merge do PR quando tudo for concluído com sucesso!
 
-5. Selecione o menu suspenso ao lado de **Agent merge**.
-6. Confirme se há uma marca ao lado de **Merge pull request**.
+5. Revise o diff do PR e as evidências de verificação antes de conceder permissão de merge.
+6. Selecione o menu suspenso ao lado de **Agent Merge**.
+7. Confirme se há uma marca ao lado de **Merge pull request**.
+8. Peça explicitamente ao agente para fazer o merge:
+
+    ```plaintext
+    Merge the PR once all required checks and approvals pass. Do not bypass repository protections.
+    ```
+
+9. Acompanhe o progresso e resolva os bloqueios informados. Confirme que o estado do PR é **Merged** antes de continuar; habilitar a permissão de merge ou ver um agente em execução não confirma que a mesclagem foi concluída.
 
 
 > [!IMPORTANT]

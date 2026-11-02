@@ -1,9 +1,9 @@
 ---
 title: "레슨 8 - 기능 PR 만들기 및 병합"
-description: "필터링, 스킬 업데이트, QA 프로필, 테스트를 함께 검토하고 PR을 만든 다음 Agent Merge를 사용합니다."
+description: "필터링, 지침 및 스킬 업데이트, QA 프로필, 테스트를 함께 검토하고 PR을 만든 다음 Agent Merge를 사용합니다."
 authors:
   - geektrainer
-lastUpdated: 2026-09-17
+lastUpdated: 2026-10-22
 ---
 
 필터링 구현, 지침 업데이트, 스킬 업데이트, 품질 보증(QA) 프로필, 테스트를 하나의 브랜치에 저장했습니다. 이제 함께 검토하고 끌어오기 요청을 엽니다. 별점 끌어오기 요청(PR)은 직접 병합했지만, 이번에는 **Agent Merge**가 프로세스를 관리하도록 합니다.
@@ -33,8 +33,8 @@ lastUpdated: 2026-09-17
 
 1. 에이전트 선택기에서 **Default agent**를 선택합니다.
 2. **Create PR** 옆의 드롭다운을 선택합니다.
-3. **Agent merge**를 선택합니다. 버튼이 **Agent merge**로 바뀝니다.
-4. **Agent merge**를 선택하여 Agent Merge 프로세스를 시작합니다.
+3. **Agent Merge**를 선택합니다. 버튼이 **Agent Merge**로 바뀝니다.
+4. **Agent Merge** 버튼을 선택하여 프로세스를 시작합니다. 드롭다운 옵션만 선택해서는 프로세스가 시작되지 않습니다.
 
 Agent Merge 프로세스가 시작되면 다음 작업을 수행합니다.
 
@@ -47,8 +47,16 @@ Agent Merge 프로세스가 시작되면 다음 작업을 수행합니다.
 
 모든 검사가 통과하면 Agent Merge가 PR도 병합하도록 합니다.
 
-5. **Agent merge** 옆의 드롭다운을 선택합니다.
-6. **Merge pull request** 옆에 체크 표시가 있는지 확인합니다.
+5. 병합 권한을 부여하기 전에 PR diff와 검증 근거를 검토합니다.
+6. **Agent Merge** 옆의 드롭다운을 선택합니다.
+7. **Merge pull request** 옆에 체크 표시가 있는지 확인합니다.
+8. 다음 프롬프트로 에이전트에 명시적으로 병합을 요청합니다.
+
+    ```plaintext
+    Merge the PR once all required checks and approvals pass. Do not bypass repository protections.
+    ```
+
+9. 진행 상황을 확인하고 차단 요인이 보고되면 해결합니다. 계속하기 전에 PR 상태가 **Merged**인지 확인합니다. 병합 권한이 활성화되었거나 에이전트가 실행 중이라는 사실만으로 병합 완료를 판단하지 않습니다.
 
 > [!IMPORTANT]
 > Agent Merge는 리포지토리 보호나 누락된 권한을 우회하지 않습니다. 계속하기 전에 이러한 차단 요인을 해결합니다.

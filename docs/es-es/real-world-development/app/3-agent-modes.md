@@ -3,7 +3,7 @@ title: "Lección 3 - Modos de agente: Plan y Autopilot"
 description: "Explora los modos de agente: utiliza Plan para acordar un enfoque, Autopilot para crear el filtrado a partir de una incidencia e Interactive para revisar y verificar el resultado."
 authors:
   - geektrainer
-lastUpdated: 2026-10-05
+lastUpdated: 2026-10-22
 ---
 
 Empezamos añadiendo una pequeña funcionalidad al proyecto. Sin embargo, los cambios más amplios requieren un proceso más sólido. Por suerte, la aplicación GitHub Copilot está diseñada para adaptarse al flujo existente de una organización y garantizar que creamos lo adecuado de la forma correcta. Esta es la primera de varias lecciones en las que seguirás un proceso de desarrollo habitual dirigido por agentes: partirás de una incidencia para generar una funcionalidad, comprobarás que el código es válido y que la funcionalidad se comporta como se espera y, finalmente, la combinarás correctamente con el proyecto.
@@ -63,6 +63,9 @@ Antes de empezar, confirma que la PR de valoraciones por estrellas está combina
 
 3. Confirma que la incidencia está adjunta a la sesión y selecciona **Plan** en el selector de modo.
 
+> [!NOTE]
+> Si no se encuentra Node.js o npm, pide al agente que ejecute `node --version` y `npm --version`. Si funcionan en tu terminal, pero no en la sesión, comprueba la configuración de `PATH` o del gestor de versiones de la aplicación y ciérrala por completo antes de volver a abrirla. Reintenta la operación y las comprobaciones que hayan fallado; no reinstales npm solo porque el agente no lo encuentre.
+
 ## Planificar la funcionalidad de filtrado
 
 La planificación te permite revisar el enfoque antes de que Copilot escriba código. Como has iniciado la sesión desde la incidencia, Copilot ya tiene la solicitud de la funcionalidad como contexto. Envía:
@@ -77,7 +80,7 @@ El plan debe incluir lint, pruebas unitarias, pruebas E2E y comprobación de tip
 
 ## Aprobar Autopilot explícitamente
 
-Cuando estés conforme con el plan, selecciona **Approve and implement with autopilot** o la opción equivalente de tu versión. Confirma que el indicador de modo muestra **Autopilot**.
+Cuando estés conforme con el plan, selecciona **Approve and implement this plan** o la opción equivalente de tu versión. Comprueba el modo activo en lugar de dar por hecho que la aprobación cambia de modo. Confirma que el indicador muestra **Autopilot**.
 
 Copilot comenzará a implementar la funcionalidad. Verás cómo itera por el proceso, sigue el plan establecido, genera código e incluso ejecuta pruebas.
 
@@ -104,12 +107,18 @@ El código parece correcto, pero ¿se ejecuta? Iniciemos la aplicación como ant
     ```
 
 2. En unos instantes, la aplicación se iniciará y se abrirá una ventana de navegador dentro de la aplicación Copilot.
-3. Confirma que las tarjetas de juegos valorados muestran su puntuación sobre cinco.
-4. Cuando termines, pide a Copilot que detenga el servidor de desarrollo que ha iniciado para esta sesión con la indicación siguiente:
+3. Selecciona una categoría y confirma que los resultados coinciden. Borra el filtro y, después, selecciona un editor y confirma que los resultados coinciden con ese editor.
+4. Combina los filtros de categoría y editor y compara los resultados con la incidencia y el plan aprobado. Si se admiten varias categorías, comprueba el comportamiento acordado para combinarlas.
+5. Prueba una combinación sin juegos coincidentes y comprueba el estado vacío. Borra o restablece los filtros y confirma que vuelve a aparecer la lista completa.
+6. Cuando termines, pide a Copilot que detenga el servidor de desarrollo que ha iniciado para esta sesión con la indicación siguiente:
 
     ```plaintext
     Stop the dev server and close the browser canvas.
     ```
+
+## Mantener esta sesión para las lecciones siguientes
+
+Todavía no crees ni combines la PR del filtrado. Conserva esta sesión, el árbol de trabajo y la rama para las lecciones 4 a 8. A continuación, aplicarás instrucciones personalizadas al código de filtrado y añadirás mejoras a la habilidad y al agente QA antes de crear y combinar la PR conjunta en la lección 8. Puedes dejar la sesión inactiva después de detener el servidor y volver a ella en la siguiente lección.
 
 ## Resumen y pasos siguientes
 
